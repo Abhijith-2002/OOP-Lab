@@ -30,6 +30,8 @@ This repository contains solutions of all OOP Lab programs (S3 KTU Model Enginee
 ## Cycle-5
 
 1)Calculator.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/Calculator.java">Solution</a>
+
+2)Traffic light.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/TrafficLight.java">Solution</a>
 ## Cycle-6
 
 1)Doubly Linked List.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/DoublyLinkedList.java">Solution</a>
