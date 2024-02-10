@@ -41,10 +41,10 @@ This repository contains solutions of all OOP Lab programs (S3 KTU Model Enginee
 ## External Exam Questions
 
 1)Read 3 marks of a student from an input file with following format
-    ==================================================
-    Roll.No     Name    Mark1   Mark2  
-    ==================================================
-    111         Anu     50      50          
+    ==================================================</br>
+    Roll.No     Name    Mark1   Mark2  </br>
+    ==================================================</br>
+    111         Anu     50      50          </br>
 
 Display the above details in a GUI when clicking on "Import data" button. Use required Textbox and labels When clicking on "Calculate" button, find total marks and display it in another text box.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/StudentGUI.java">Solution</a>
 
