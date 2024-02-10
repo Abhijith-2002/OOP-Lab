@@ -36,7 +36,7 @@ This repository contains solutions of all OOP Lab programs (S3 KTU Model Enginee
 
 1)Doubly Linked List.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/DoublyLinkedList.java">Solution</a>
 
-2)Quick sort.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/PolynomialAddition.c">Solution</a>
+2)Quick sort.Solution
 
 ## External Exam Questions
 
@@ -69,3 +69,12 @@ public abstract String notice();
 Derive FirstClass, General classes from the compartment class with instance variables for tieke counts for each class and a method for booking of tickets as the user requirement and decrements the count of tickets accordingly. Override the notice function n each of these classes to print t se balance seats available to the specific type of compartmen
 
 Design a GUI fo reading user details in text fields, with buttons for booking, and cancellation. Also print balance seats available in the GUT using Label.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/CompartmentGUI.java">Solution</a>
+
+5)Read a String("Model Engineering College") using a TextField. When a "Read" button is clicked, tokenize the string in TextField with space as delimiter and write  it into a file in following format:
+================
+Sl No.  Token
+================
+111.     Model
+112.     Engineering 
+113.     College
+.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/FileGUI.java">Solution</a>
