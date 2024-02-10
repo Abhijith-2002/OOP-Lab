@@ -56,6 +56,6 @@ class BitCalculator implements ActionListener
     }
     public static void main(String[] args)
     {
-        Q q = new Q();
+        BitCalculator bc = new BitCalculator();
     }
 }
