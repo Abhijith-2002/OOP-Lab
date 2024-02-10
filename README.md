@@ -71,9 +71,9 @@ Derive FirstClass, General classes from the compartment class with instance vari
 Design a GUI fo reading user details in text fields, with buttons for booking, and cancellation. Also print balance seats available in the GUT using Label.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/CompartmentGUI.java">Solution</a>
 
 5)Read a String("Model Engineering College") using a TextField. When a "Read" button is clicked, tokenize the string in TextField with space as delimiter and write  it into a file in following format:
-================
-Sl No.  Token
-================
+    ================
+    Sl No.  Token
+    ================
 111.     Model
 112.     Engineering 
 113.     College
