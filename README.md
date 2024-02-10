@@ -61,3 +61,11 @@ Display the above details in a GUI when clicking on "Import data" button. Use re
 The displayed value should change when a radio button is selected or unselected and the button is pressed.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/BitCalculator.java">Solution</a>
 
 3)Create a GUI with a Textbox for getting a count N value from user and a PRINT button. When clicking on "PRINT" button, pass the value of count N to two threads T1 and T2. T1 thread should print the string "Thrikkakara" for N times in console and T2 thread should print the string "Kochi" for N times in console.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/ThreadPrinterGUI.java">Solution</a>
+
+4)Create an class Compartment to represent a rail coach. Provide an abstract function notice in this class.
+
+public abstract String notice();
+
+Derive FirstClass, General classes from the compartment class with instance variables for tieke counts for each class and a method for booking of tickets as the user requirement and decrements the count of tickets accordingly. Override the notice function n each of these classes to print t se balance seats available to the specific type of compartmen
+
+Design a GUI fo reading user details in text fields, with buttons for booking, and cancellation. Also print balance seats available in the GUT using Label.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/CompartmentGUI.java">Solution</a>
