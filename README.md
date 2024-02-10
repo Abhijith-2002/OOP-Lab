@@ -38,7 +38,7 @@ This repository contains solutions of all OOP Lab programs (S3 KTU Model Enginee
 
 2)Quick sort.<a href="https://github.com/Abhijith-2002/OOP-Lab/blob/main/PolynomialAddition.c">Solution</a>
 
-##External Exam Questions
+## External Exam Questions
 
 1)Read 3 marks of a student from an input file with following format
 ==================================================
