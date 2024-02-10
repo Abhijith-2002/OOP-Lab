@@ -7,11 +7,14 @@ class Calculator implements ActionListener
     JFrame jfrm = new JFrame("Calculator");
     JTextField jtf = new JTextField();
     String s0,s1,s2;
+    JPanel buttonsPanel;
     Calculator()
     {
         s0 = s1 = s2 = "";
         jtf.setEditable(false);
-        jfrm.setLayout(new GridLayout(4,4));
+        jtf.setFont(new Font(Font.SANS_SERIF,Font.BOLD,36));
+        jfrm.getContentPane().setLayout(new GridLayout(0,1));
+        buttonsPanel = new JPanel(new GridLayout(4,4));
         JButton[] buttons = new JButton[16];
         buttons[0] = new JButton("0");
         buttons[1] = new JButton("1");
@@ -34,8 +37,9 @@ class Calculator implements ActionListener
 
         for (int i = 0; i < buttons.length; i++) {
             buttons[i].addActionListener(this);
-            jfrm.add(buttons[i]);
+            buttonsPanel.add(buttons[i]);
         }
+        jfrm.add(buttonsPanel);
         jfrm.pack();
         jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jfrm.setVisible(true);
