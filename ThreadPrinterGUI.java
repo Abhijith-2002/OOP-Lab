@@ -10,7 +10,7 @@ class ThreadPrinter extends Thread
         this.msg = msg;
         this.count = count;
     }
-    synchronized public void run()
+    synchronized public void printMessage()
     {
         for(int i=0;i<count;i++)
         {
@@ -22,15 +22,16 @@ class ThreadGenerator extends Thread
 {
     String msg;
     int count;
+    ThreadPrinter printer;
     ThreadGenerator(String msg,int count)
     {
         this.msg = msg;
         this.count = count;
+        printer = new ThreadPrinter(msg,count);
     }
     public void run()
     {
-        ThreadPrinter printerThread = new ThreadPrinter(msg,count);
-        printerThread.start();
+        printer.printMessage();
     }
 }
 public class ThreadPrinterGUI implements ActionListener
