@@ -4,23 +4,29 @@ public class Frequency
 {
     public static void main(String[] args)
     {
-        int count = 0;
+        int count;
         int l;
         String word;
         char c;
         System.out.println("Enter the word : ");
         Scanner sc = new Scanner(System.in);
         word = sc.nextLine();
-        System.out.println("Enter the character : ");
-        c = sc.nextLine().charAt(0);
-        l = word.length();
-        for(int i=0;i<l;i++)
+        ArrayList<Character> tracker = new ArrayList<>();
+        for(int i=0;i<word.length();i++)
         {
-            if(word.charAt(i)==c)
+            if(!tracker.contains(word.charAt(i)))
             {
-                count++;
+                count = 1;
+                for(int j=i+1;j<word.length();j++)
+                {
+                    if(word.charAt(j)==word.charAt(i))
+                    {
+                        count++;
+                    }
+                }
+                tracker.add(word.charAt(i));
+                System.out.println(word.charAt(i)+" : "+count);
             }
         }
-        System.out.println(count);
     }
 }
