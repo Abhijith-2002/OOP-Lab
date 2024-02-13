@@ -1,151 +1,158 @@
-import javax.swing.*;
-import javax.swing.border.LineBorder;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
-class Student {
-    String rollNo;
-    String name;
-    int mark1;
-    int mark2;
-    int mark3;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
-    Student(String rollNo, String name, int mark1, int mark2, int mark3) {
+class Student
+{
+    int rollNo;
+    String name;
+    int mark1,mark2,mark3;
+    Student(int rollNo,String name,int mark1,int mark2,int mark3)
+    {
         this.rollNo = rollNo;
         this.name = name;
         this.mark1 = mark1;
         this.mark2 = mark2;
         this.mark3 = mark3;
     }
-
-    String getrollNo() {
+    int getrollNo()
+    {
         return rollNo;
     }
-
-    String getname() {
+    String getName()
+    {
         return name;
     }
-
-    int getmarks1() {
+    int getMark1()
+    {
         return mark1;
     }
-
-    int getmarks2() {
+    int getMark2()
+    {
         return mark2;
     }
-
-    int getmarks3() {
+    int getMark3()
+    {
         return mark3;
     }
 }
-
-public class StudentGUI implements ActionListener {
+public class StudentGUI implements ActionListener
+{
     JFrame jfrm;
-    JTextField rollNoField;
-    JLabel detailsField,marksField;
-    JButton b1, b2;
+    JTextField rollNoField,detailsField,marksField;
+    JButton importButton,calcButton;
+    JLabel rollNoLabel,detailsLabel,marksLabel;
     ArrayList<Student> students;
-
-    StudentGUI() {
-        jfrm = new JFrame();
-        jfrm.setSize(800,800);
-        rollNoField = new JTextField(16);
-        detailsField = new JLabel("student-details");
-        marksField = new JLabel("total-marks");
-        detailsField.setPreferredSize(new Dimension(200,200));
-        marksField.setPreferredSize(new Dimension(200,200));
-        detailsField.setBorder(new LineBorder(Color.BLACK));
-        marksField.setBorder(new LineBorder(Color.BLACK));
-        b1 = new JButton("import data");
-        b2 = new JButton("calculate");
-        b1.addActionListener(this);
-        b2.addActionListener(this);
+    StudentGUI()
+    {
+        jfrm = new JFrame("Student-GUI");
+        rollNoLabel = new JLabel("Enter Roll-No : ");
+        rollNoField = new JTextField(10);
+        importButton = new JButton("Import");
+        importButton.addActionListener(this);
+        detailsLabel = new JLabel("Student Details : ");
+        detailsField = new JTextField(30);
+        detailsField.setEditable(false);
+        detailsField.setEditable(false);
+        calcButton = new JButton("Calculate");
+        calcButton.addActionListener(this);
+        marksLabel = new JLabel("Total Marks");
+        marksField = new JTextField(10);
+        marksField.setEditable(false);
+        marksField.setEditable(false);
+        jfrm.add(rollNoLabel);
         jfrm.add(rollNoField);
+        jfrm.add(importButton);
+        jfrm.add(detailsLabel);
         jfrm.add(detailsField);
+        jfrm.add(calcButton);
+        jfrm.add(marksLabel);
         jfrm.add(marksField);
-        jfrm.add(b1);
-        jfrm.add(b2);
         jfrm.getContentPane().setLayout(new FlowLayout());
         jfrm.setVisible(true);
         jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        try {
-            readData();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        readData();
     }
-
-    public void readData() throws FileNotFoundException, IOException {
+    public void readData()
+    {
         students = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("students.txt"))) {
+        try
+        {
+            BufferedReader br = new BufferedReader(new FileReader("students.txt"));
             String line;
-            while ((line = br.readLine()) != null) {
+            while((line=br.readLine())!=null)
+            {
                 if(Character.isDigit(line.charAt(0)))
                 {
-                    String[] fields = line.split("\\s+");
-                    Student student = new Student(fields[0], fields[1], Integer.parseInt(fields[2]),
-                    Integer.parseInt(fields[3]), Integer.parseInt(fields[4]));
+                    String[] fields = line.split("\\s++");
+                    Student student = new Student(Integer.parseInt(fields[0]), fields[1], Integer.parseInt(fields[2]), Integer.parseInt(fields[3]), Integer.parseInt(fields[4]));
                     students.add(student);
                 }
             }
         }
         catch(Exception e)
         {
-            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }
-
-    public void displayDetails(String rollNo) {
+    public void displayDetails(int rollNo)
+    {
         boolean found = false;
-        for (Student student : students) {
-            if (student.getrollNo().equals(rollNo)) {
-                String msg = new String("Roll. No : " + rollNo + "\n" + "Name : " + student.getname() + "\n"
-                        + "Marks1 : " + student.getmarks1() + "\n" + "Marks2 : " + student.getmarks2() + "\n"
-                        + "Marks3 : " + student.getmarks3() + "\n");
-                detailsField.setText("<html>" + msg.replaceAll("<","&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br/>") + "</html>");
+        for(Student student : students)
+        {
+            if(student.getrollNo()==rollNo)
+            {
+                detailsField.setText("Roll No : "+rollNo+"\nName : "+student.getName()+"\nMark-1 : "+student.getMark1()+"\nMark-2 : "+student.getMark2()+"\nMarks-3 : "+student.getMark3());;
                 found = true;
                 break;
             }
         }
-        if (!found) {
-            marksField.setText("Student details not found!");
+        if(!found)
+        {
+            detailsField.setText("Student details not found !");
         }
     }
-
-    public void displayMarks(String rollNo) {
+    public void displayMarks(int rollNo)
+    {
         boolean found = false;
-        for (Student student : students) {
-            if (student.getrollNo().equals(rollNo)) {
-                int totalMarks = student.getmarks1() + student.getmarks2() + student.getmarks3();
-                String msg = new String("Total Marks : " + totalMarks);
-                marksField.setText(msg);
+        for(Student student : students)
+        {
+            if(student.getrollNo()==rollNo)
+            {
+                int result = student.getMark1()+student.getMark2()+student.getMark3();
+                marksField.setText("Total marks : "+result);
                 found = true;
                 break;
             }
         }
-        if (!found) {
-            marksField.setText("Student details not found!");
+        if(!found)
+        {
+            marksField.setText("Student details not found !");
         }
     }
-
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == b1) {
-            String rollNo = rollNoField.getText();
+    public void actionPerformed(ActionEvent e)
+    {
+        if(e.getSource()==importButton)
+        {
+            int rollNo = Integer.parseInt(rollNoField.getText());
             displayDetails(rollNo);
-        } else if (e.getSource() == b2) {
-            String rollNo = rollNoField.getText();
-            displayMarks(rollNo);
+        }
+        else if(e.getSource()==calcButton)
+        {
+            int rollNo = Integer.parseInt(rollNoField.getText());
+            displayMarks(rollNo);;
         }
     }
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         StudentGUI GUI = new StudentGUI();
     }
 }
